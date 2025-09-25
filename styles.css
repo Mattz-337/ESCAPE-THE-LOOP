@@ -1,138 +1,192 @@
-function checkAnswerStarTriangle() {
-    const outerloop = document.getElementById('outerLoop').value.toLowerCase().replace(/\s/g,'');
-    const spaceloop = document.getElementById('spaceLoop').value.toLowerCase().replace(/\s/g,'');
-    const starloop = document.getElementById('starLoop').value.toLowerCase().replace(/\s/g,'');
-
-    const resultDiv = document.getElementById('result');
-    const resultText = document.getElementById('resultText');
-
-    //expected answers
-    const correctouterloop = ['int i = 1; i <= n; i++', 'int i = 1; i <= 5; i++', 'i = 1; i <= n; i++', 'i = 1; i <= 5; i++'];
-    const correctspaceloop = ['int j = 1; j <= n - i; j++', 'int j = 1; j <= 5 - i; j++', 'j = 1; j <= n - i; j++', 'j = 1; j <= 5 - i; j++'];
-    const correctstarloop = ['int j = 1; j <= 2 * i - 1; j++', 'j = 1; j <= 2 * i - 1; j++', 'int j = 1; j <= (2 * i) - 1; j++'];
-
-    var score = 0;
-    var feedback = [];
-
-    if(correctouterloop.some(ans => outerloop === ans.toLowerCase().replace(/\s/g,''))) {
-        console.log('Outer loop is correct');
-        score += 1;
-        feedback.push('✅ First loop is correct!');
-    }
-    else {
-        console.log('Outer loop is incorrect');
-        feedback.push('❌ First loop is incorrect!');
-    }
-    if(correctspaceloop.some(ans => spaceloop === ans.toLowerCase().replace(/\s/g,''))) {
-        console.log('space loop is correct');
-        score += 2;
-        feedback.push('✅ Second loop is correct!');
-    }
-    else {
-        console.log('space loop is incorrect');
-        feedback.push('❌ Second loop is incorrect!');
-    }
-    if(correctstarloop.some(ans => starloop === ans.toLowerCase().replace(/\s/g,''))) {
-        console.log('star loop is correct');
-        score += 3;
-        feedback.push('✅ Third loop is correct!');
-    }
-    else {
-        console.log('star loop is incorrect');
-        feedback.push('❌ Third loop is incorrect!');
-    }
-
-    if(score === 6) {
-        resultDiv.style.background = 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)';
-        resultText.innerHTML =`
-            Congratulations 🎉<br>
-            <br>
-            Score: 3/3
-            <br>
-            <br>
-            <img src="assets/goldenticket.jpeg" alt="Golden Ticket" >
-        `
-    }
-    else{
-        resultText.innerHTML =`
-            Try Again!<br>
-            <br>
-            ${feedback[0]}<br>
-            ${feedback[1]}<br>
-            ${feedback[2]}<br>
-        `
-        feedback = [];
-    }
-
-    resultDiv.classList.add('show');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
 
-function InvertedStarTriangle() {
-    const outerloop = document.getElementById('outerLoop2').value.toLowerCase().replace(/\s/g,'');
-    const spaceloop = document.getElementById('spaceLoop2').value.toLowerCase().replace(/\s/g,'');
-    const starloop = document.getElementById('starLoop2').value.toLowerCase().replace(/\s/g,'');
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
 
-    const resultDiv2 = document.getElementById('result2');
-    const resultText2 = document.getElementById('resultText2');
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 40px;
+}
 
-    //expected answers
-    const correctouterloop2 = ["int i = n; i >= 1; i--","i = n; i >= 1; i--","int i = 1; i <= n; i++","int i = 1; i <= 5; i++","i = 1; i <= n; i++","i = 1; i <= 5; i++"];
-    const correctspaceloop2 = ["int j = i; j < n; j++"," j = i; j < n; j++","int j = 1; j <= n - i; j++","int j = 1; j <= 5 - i; j++","j = 1; j <= n - i; j++","j = 1; j <= 5 - i; j++"];
-    const correctstarloop2 = ["int j = 1; j <= (2 * i - 1); j++"," j = 1; j <= (2 * i - 1); j++","int j = 1; j <= 2 * i - 1; j++","j = 1; j <= 2 * i - 1; j++","int j = 1; j <= (2 * i) - 1; j++"];
+.problem-section {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid #e9ecef;
+}
 
-    var score2 = 0;
-    var feedback2 = [];
+.problem-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+}
 
-    if(correctouterloop2.some(ans => outerloop === ans.toLowerCase().replace(/\s/g,''))) {
-        console.log('Outer loop is correct');
-        score2 += 1;
-        feedback2.push('✅ First loop is correct!');
-    }
-    else {
-        console.log('Outer loop is incorrect');
-        feedback2.push('❌ First loop is incorrect!');
-    }
-    if(correctspaceloop2.some(ans => spaceloop === ans.toLowerCase().replace(/\s/g,''))) {
-        console.log('space loop is correct');
-        score2 += 2;
-        feedback2.push('✅ Second loop is correct!');
-    }
-    else {
-        console.log('space loop is incorrect');
-        feedback2.push('❌ Second loop is incorrect!');
-    }
-    if(correctstarloop2.some(ans => starloop === ans.toLowerCase().replace(/\s/g,''))) {
-        console.log('star loop is correct');
-        score2 += 3;
-        feedback2.push('✅ Third loop is correct!');
-    }
-    else {
-        console.log('star loop is incorrect');
-        feedback2.push('❌ Third loop is incorrect!');
-    }
+.required-output {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 25px;
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
-    if(score2 === 6) {
-        resultDiv2.style.background = 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)';
-        resultText2.innerHTML =`
-           Congratulations 🎉<br>
-            <br>
-            Score: 3/3
-            <br>
-            <br>
-            <img src="assets/goldenticket.jpeg" alt="Golden Ticket" >
-        `
-    }
-    else{
-        resultText2.innerHTML =`
-            Try Again!<br>
-            <br>
-            ${feedback2[0]}<br>
-            ${feedback2[1]}<br>
-            ${feedback2[2]}<br>
-        `
-        feedback2 = [];
-    }
+.code-editor {
+    background: #282c34;
+    color: #abb2bf;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: auto;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
 
-    resultDiv2.classList.add('show');
+.line-number {
+    color: #5c6370;
+    margin-right: 15px;
+    user-select: none;
+}
+
+.keyword {
+    color: #c678dd;
+}
+
+.string {
+    color: #98c379;
+}
+
+.comment {
+    color: #5c6370;
+    font-style: italic;
+}
+
+.method {
+    color: #61afef;
+}
+
+.input-field {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    padding: 8px;
+    font-family: 'Courier New', monospace;
+    color: #2c3e50;
+    min-width: 200px;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #2980b9;
+    background: white;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.result-section {
+    margin-top: 25px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    border-radius: 10px;
+    color: white;
+    display: none;
+}
+
+.result-section.show {
+    display: block;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hint-box {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.hint-box h3 {
+    margin-bottom: 10px;
+}
+
+.pattern-explanation {
+    background: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border-left: 5px solid #3498db;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .header h1 {
+        font-size: 2em;
+    }
+    
+    .code-editor {
+        font-size: 12px;
+    }
 }
