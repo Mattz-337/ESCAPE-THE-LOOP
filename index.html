@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sample</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V5K54F782K"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-V5K54F782K');
+    </script>
 </head>
 <body>
 
@@ -52,7 +61,7 @@
                     <div><span class="line-number">12</span>}</div>
                 </div>
 
-                <button class="submit-btn" onclick="checkAnswer()">🔍 Check Answer</button>
+                <button class="submit-btn" onclick="checkAnswerStarTriangle()">🔍 Check Answer</button>
 
                 <div id="result" class="result-section">
                     <h3>📊 Result:</h3>
@@ -60,7 +69,61 @@
                 </div>
             </div>
         </div>
+
+        <div class="main-content">
+            <div class="problem-section">
+                <h2>📋 Problem: Create a Inverted Star Triangle</h2>
+                
+                <div class="required-output">
+                    <strong>Required Output:</strong>
+                    <pre>
+
+*********
+*******
+*****
+***
+*
+                    </pre>
+                </div>
+
+                <div class="hint-box">
+                    <h3>💡 Hints:</h3>
+                    
+                </div>
+
+
+            </div>
+
+            <div class="problem-section">
+                <h2>💻 Complete the Code</h2>
+                
+                <div class="code-editor">
+                    <div><span class="line-number">1</span><span class="keyword">int</span> n = <span class="string">5</span>;</div>
+                    <div><span class="line-number">2</span><span class="keyword">for</span> (<input type="text" class="input-field" id="outerLoop2" placeholder="int i =">) {</div>
+                    <div><span class="line-number">3</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Loop for spaces</span></div>
+                    <div><span class="line-number">4</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> (<input type="text" class="input-field" id="spaceLoop2" placeholder="int j =">) {</div>
+                    <div><span class="line-number">5</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.<span class="method">print</span>(<span class="string">" "</span>);</div>
+                    <div><span class="line-number">6</span>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+                    <div><span class="line-number">7</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Loop for stars</span></div>
+                    <div><span class="line-number">8</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> (<input type="text" class="input-field" id="starLoop2" placeholder="int j =">) {</div>
+                    <div><span class="line-number">9</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.<span class="method">print</span>(<span class="string">"*"</span>);</div>
+                    <div><span class="line-number">10</span>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+                    <div><span class="line-number">11</span>&nbsp;&nbsp;&nbsp;&nbsp;System.out.<span class="method">println</span>();</div>
+                    <div><span class="line-number">12</span>}</div>
+                </div>
+
+                <button class="submit-btn" onclick="InvertedStarTriangle()">🔍 Check Answer</button>
+
+                <div id="result2" class="result-section">
+                    <h3>📊 Result:</h3>
+                    <p id="resultText2"></p>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+    
 
     <script src="script.js"></script>
     
